@@ -152,6 +152,32 @@ a {
   animation: pulse-dot 2s infinite;
 }
 
+/* Intro preloader (boot / 404 sequence) */
+@keyframes intro-glitch {
+  0% { transform: translate(0); text-shadow: 3px 0 #29c6ff, -3px 0 #ff3bd0; }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); text-shadow: -3px 0 #29c6ff, 3px 0 #ff3bd0; }
+  60% { transform: translate(-1px, 0); text-shadow: 3px 2px #29c6ff, -3px -2px #ff3bd0; }
+  80% { transform: translate(2px, 0); }
+  100% { transform: translate(0); text-shadow: 2px 0 #29c6ff, -2px 0 #ff3bd0; }
+}
+.intro-glitch {
+  animation: intro-glitch 0.4s steps(2) infinite;
+}
+.intro-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.045) 0 1px,
+    transparent 1px 3px
+  );
+}
+@keyframes intro-caret {
+  50% { opacity: 0; }
+}
+.intro-caret {
+  animation: intro-caret 0.8s steps(1) infinite;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

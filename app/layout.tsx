@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MatrixRain from "@/components/MatrixRain";
 import RevealInit from "@/components/RevealInit";
+import Intro from "@/components/Intro";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <MatrixRain />
         <RevealInit />
+        <Intro />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
