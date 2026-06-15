@@ -2,31 +2,31 @@
   
   <defs>
     <radialGradient id="glow-c" cx="45%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#e11d34" stop-opacity="0.55"/>
-      <stop offset="45%" stop-color="#e11d34" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#e11d34" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#00ff7a" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#00ff7a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00ff7a" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="fade-c" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a0708" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#0a0708" stop-opacity="0.9"/>
+      <stop offset="0%" stop-color="#070d0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#070d0a" stop-opacity="0.9"/>
     </linearGradient>
     <pattern id="grid-c" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
     </pattern>
     <filter id="blur-c"><feGaussianBlur stdDeviation="6"/></filter>
   </defs>
-  <rect width="1200" height="675" fill="#0a0708"/>
+  <rect width="1200" height="675" fill="#070d0a"/>
   <rect width="1200" height="675" fill="url(#grid-c)"/>
   <rect width="1200" height="675" fill="url(#glow-c)"/>
-  <rect x="390" y="202.5" width="420" height="230" rx="14" fill="#140e10" stroke="#e11d34" stroke-opacity="0.5"/>
+  <rect x="390" y="202.5" width="420" height="230" rx="14" fill="#140e10" stroke="#00ff7a" stroke-opacity="0.5"/>
      <rect x="390" y="202.5" width="420" height="40" rx="14" fill="#1a1316"/>
-     <circle cx="414" cy="222.5" r="5" fill="#e11d34"/>
+     <circle cx="414" cy="222.5" r="5" fill="#00ff7a"/>
      <circle cx="434" cy="222.5" r="5" fill="#fff" fill-opacity="0.3"/>
      <circle cx="454" cy="222.5" r="5" fill="#fff" fill-opacity="0.3"/>
-     <text x="414" y="268.5" font-family="ui-monospace,monospace" font-size="16" fill="#ff3350">&gt; explain</text>
+     <text x="414" y="268.5" font-family="ui-monospace,monospace" font-size="16" fill="#29c6ff">&gt; explain</text>
      <rect x="414" y="272.5" width="260" height="8" rx="4" fill="#fff" fill-opacity="0.18"/><rect x="414" y="302.5" width="180" height="8" rx="4" fill="#fff" fill-opacity="0.16"/><rect x="414" y="332.5" width="300" height="8" rx="4" fill="#fff" fill-opacity="0.13999999999999999"/><rect x="414" y="362.5" width="140" height="8" rx="4" fill="#fff" fill-opacity="0.12"/>
      <g transform="translate(770, 402.5)">
-       <rect x="0" y="0" width="120" height="64" rx="14" fill="#e11d34" opacity="0.9"/>
+       <rect x="0" y="0" width="120" height="64" rx="14" fill="#00ff7a" opacity="0.9"/>
        <rect x="14" y="18" width="70" height="7" rx="3" fill="#fff" fill-opacity="0.8"/>
        <rect x="14" y="34" width="48" height="7" rx="3" fill="#fff" fill-opacity="0.6"/>
      </g>

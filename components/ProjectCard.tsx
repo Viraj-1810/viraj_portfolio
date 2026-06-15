@@ -23,9 +23,7 @@ export default function ProjectCard({
         href={`/projects/${project.slug}`}
         className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-crimson hover:shadow-[0_22px_60px_-24px_rgba(0,255,140,0.45)]"
       >
-        <div
-          className={`relative overflow-hidden bg-surface-2 ${large ? "aspect-[16/10]" : "aspect-video"}`}
-        >
+        <div className="relative aspect-video overflow-hidden bg-surface-2">
           <Image
             src={project.cover}
             alt={project.coverAlt}
@@ -39,22 +37,20 @@ export default function ProjectCard({
           </span>
         </div>
 
-        <div className={`flex flex-1 flex-col ${large ? "p-7" : "p-5"}`}>
+        <div className={`flex flex-1 flex-col ${large ? "p-6" : "p-5"}`}>
           <div className="flex items-baseline justify-between gap-3">
-            <h3 className={`font-bold tracking-tight ${large ? "text-2xl" : "text-lg"}`}>
+            <h3 className={`font-bold tracking-tight ${large ? "text-xl" : "text-lg"}`}>
               {project.name}
             </h3>
             <span className="font-code shrink-0 text-xs text-muted">{project.year}</span>
           </div>
-          <p className={`mt-1 font-medium text-crimson ${large ? "text-base" : "text-sm"}`}>
-            {project.tagline}
-          </p>
-          <p className={`mt-3 line-clamp-3 text-muted ${large ? "text-base" : "text-sm"}`}>
+          <p className="mt-1 text-sm font-medium text-crimson">{project.tagline}</p>
+          <p className={`mt-2.5 text-sm text-muted ${large ? "line-clamp-2" : "line-clamp-3"}`}>
             {project.summary}
           </p>
 
           <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Key technologies">
-            {project.tech.slice(0, large ? 6 : 4).map((t) => (
+            {project.tech.slice(0, large ? 5 : 4).map((t) => (
               <li
                 key={t}
                 className="font-code rounded-md border border-border bg-surface-2 px-2 py-0.5 text-xs text-muted"
@@ -62,14 +58,14 @@ export default function ProjectCard({
                 {t}
               </li>
             ))}
-            {project.tech.length > (large ? 6 : 4) && (
+            {project.tech.length > (large ? 5 : 4) && (
               <li className="font-code rounded-md px-2 py-0.5 text-xs text-muted">
-                +{project.tech.length - (large ? 6 : 4)} more
+                +{project.tech.length - (large ? 5 : 4)} more
               </li>
             )}
           </ul>
 
-          <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-foreground">
+          <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-foreground">
             View case study
             <svg
               width="16"

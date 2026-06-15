@@ -16,9 +16,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, "..", "public", "images");
 mkdirSync(OUT, { recursive: true });
 
-const BG = "#0a0708";
-const CRIMSON = "#e11d34";
-const BRIGHT = "#ff3350";
+const BG = "#070d0a";
+const CRIMSON = "#00ff7a"; // primary accent (green)
+const BRIGHT = "#29c6ff"; // highlight (blue)
 
 /** Shared defs: glow filter + faint grid pattern + vignette gradient. */
 function defs(id, glowX, glowY) {

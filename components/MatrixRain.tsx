@@ -21,6 +21,7 @@ export default function MatrixRain() {
     const chars =
       "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈ0123456789ABCDEFｦﾊﾋﾌﾍﾎ<>/\\{}[]=$#".split("");
     let drops: number[] = [];
+    let colors: string[] = [];
     let raf = 0;
     let last = 0;
 
@@ -30,6 +31,11 @@ export default function MatrixRain() {
       const cols = Math.ceil(canvas.width / fontSize);
       drops = Array.from({ length: cols }, () =>
         Math.floor((Math.random() * canvas.height) / fontSize),
+      );
+      // Each column is its own stream, half green and half blue, so the
+      // result reads as distinct interleaved blue + green rain.
+      colors = Array.from({ length: cols }, () =>
+        Math.random() < 0.5 ? "#00ff7a" : "#29c6ff",
       );
     };
 
@@ -42,9 +48,8 @@ export default function MatrixRain() {
         const ch = chars[(Math.random() * chars.length) | 0];
         const x = i * fontSize;
         const y = drops[i] * fontSize;
-        // bright white "head" glyphs, then a blue + green mix for the tails
-        const r = Math.random();
-        ctx.fillStyle = r > 0.97 ? "#eafff6" : r > 0.5 ? "#00ff7a" : "#22b8ff";
+        // bright white "head" glyph, otherwise this column's stream colour
+        ctx.fillStyle = Math.random() > 0.95 ? "#eafff6" : colors[i];
         ctx.fillText(ch, x, y);
         if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
@@ -88,7 +93,7 @@ export default function MatrixRain() {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 h-full w-full opacity-20"
+      className="pointer-events-none fixed inset-0 -z-10 h-full w-full opacity-30"
     />
   );
 }
