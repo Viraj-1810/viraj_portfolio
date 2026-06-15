@@ -5,8 +5,8 @@
  */
 export const site = {
   name: "Viraj Gupta",
-  // Update once deployed (used for absolute OG/canonical URLs).
-  url: "https://virajgupta.dev",
+  // Production URL (used for absolute OG/canonical URLs + sitemap).
+  url: "https://virajportfolio1.vercel.app",
   role: "AI/ML & Full-Stack Developer",
   tagline:
     "I build voice assistants, LLM apps, and custom AI automation, shipped to real, paying clients across the world.",
