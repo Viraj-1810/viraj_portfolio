@@ -3,13 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * One-time boot/404 intro: scans 0→100% looking for "a conventional
- * developer", throws a glitchy ERROR 404, then reveals the portfolio.
- * Shows once per tab session, skippable (Esc / button), and is disabled
- * for prefers-reduced-motion. Client-only so no-JS users never see it.
+ * Boot/404 intro: scans 0→100% looking for "a conventional developer",
+ * throws a glitchy ERROR 404, then reveals the portfolio.
+ *
+ * It is rendered active by default so it is part of the server HTML and
+ * covers the page on the very first paint (no flash of the portfolio first).
+ * Plays on every full load/refresh; skippable (Esc / button); disabled for
+ * prefers-reduced-motion; hidden via <noscript> for no-JS users.
  */
 export default function Intro() {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [pct, setPct] = useState(0);
   const [phase, setPhase] = useState<"scan" | "error" | "boot">("scan");
   const [closing, setClosing] = useState(false);
@@ -17,9 +20,12 @@ export default function Intro() {
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || sessionStorage.getItem("introSeen")) return;
+    if (reduce) {
+      setActive(false);
+      document.body.style.overflow = "";
+      return;
+    }
 
-    setActive(true);
     document.body.style.overflow = "hidden";
 
     const timers: ReturnType<typeof setTimeout>[] = [];
@@ -35,7 +41,6 @@ export default function Intro() {
       setTimeout(() => {
         setActive(false);
         document.body.style.overflow = "";
-        sessionStorage.setItem("introSeen", "1");
       }, 550);
     };
     finishRef.current = finish;
@@ -72,12 +77,17 @@ export default function Intro() {
   if (!active) return null;
 
   return (
-    <div
-      aria-label="Intro animation"
-      className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-background transition-opacity duration-500 ${
-        closing ? "pointer-events-none opacity-0" : "opacity-100"
-      }`}
-    >
+    <>
+      <noscript>
+        <style>{`#intro-overlay{display:none!important}`}</style>
+      </noscript>
+      <div
+        id="intro-overlay"
+        aria-label="Intro animation"
+        className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-background transition-opacity duration-500 ${
+          closing ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
       <div className="intro-scanlines pointer-events-none absolute inset-0 opacity-60" />
       <div
         aria-hidden="true"
@@ -139,6 +149,7 @@ export default function Intro() {
       >
         Skip ›
       </button>
-    </div>
+      </div>
+    </>
   );
 }
