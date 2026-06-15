@@ -7,10 +7,10 @@ import Testimonials from "@/components/Testimonials";
 import ContactCTA from "@/components/ContactCTA";
 import Marquee from "@/components/Marquee";
 import SectionHeading from "@/components/SectionHeading";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getAllProjects } from "@/lib/projects";
 
 export default function Home() {
-  const featured = getFeaturedProjects();
+  const featured = getAllProjects().slice(0, 3);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-10">
-          <ProjectGrid projects={featured} columns={2} />
+          <ProjectGrid projects={featured} />
         </div>
         <div className="mt-8 sm:hidden">
           <Link href="/projects" className="text-sm font-semibold text-crimson">

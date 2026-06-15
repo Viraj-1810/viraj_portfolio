@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ["image/avif", "image/webp"],
+    // Allow the ?v= cache-busting query on local cover images.
+    localPatterns: [
+      { pathname: "/images/**", search: "" },
+      { pathname: "/images/**", search: "?v=2" },
+    ],
   },
 };
 

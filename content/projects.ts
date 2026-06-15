@@ -117,7 +117,7 @@ export const projects: Project[] = [
     status: "Collaboration",
     summary:
       "An end-to-end deep-learning pipeline that detects pneumonia from chest X-rays, combining an autoencoder for denoising and feature extraction with a transfer-learned ResNet50 classifier into a hybrid model.",
-    cover: "/images/cover-lung-care.svg",
+    cover: "/images/cover-lung-care.svg?v=2",
     coverAlt:
       "Chest X-ray overlaid with a neural-network motif, representing pneumonia detection",
     tech: [
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     status: "Open source",
     summary:
       "A VS Code extension that answers coding questions in a sidebar chat using Groq Llama 3, and grounds answers in your own files via RAG with local HuggingFace embeddings, so there are no cloud embedding costs.",
-    cover: "/images/cover-vscode-copilot.svg",
+    cover: "/images/cover-vscode-copilot.svg?v=2",
     coverAlt:
       "Code editor sidebar with a retrieval graph linking documents",
     tech: [
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     status: "Open source",
     summary:
       "A Streamlit coding assistant powered by Groq's Llama 3 and LangChain that explains, debugs and refactors code, remembers earlier messages in the session, and streams responses with syntax-highlighted output.",
-    cover: "/images/cover-codemate.svg",
+    cover: "/images/cover-codemate.svg?v=2",
     coverAlt: "Terminal and chat bubbles merged into one interface",
     tech: ["Python", "Streamlit", "LangChain", "Groq · Llama 3", "SQLite"],
     links: { github: "https://github.com/Viraj-1810/Codemate-AI-coding-assistant" },
@@ -267,7 +267,7 @@ export const projects: Project[] = [
     status: "Open source",
     summary:
       "A Flask REST API that reads multi-user group chats, detects meeting intent and extracts availability with spaCy NLP, then schedules meetings on participant consensus, backed by MongoDB Atlas.",
-    cover: "/images/cover-meeting-scheduler.svg",
+    cover: "/images/cover-meeting-scheduler.svg?v=2",
     coverAlt: "Calendar grid connected to NLP language nodes",
     tech: ["Python", "Flask", "MongoDB Atlas", "spaCy", "NLP", "REST API"],
     links: { github: "https://github.com/Viraj-1810/AI-Meeting-Scheduler" },
