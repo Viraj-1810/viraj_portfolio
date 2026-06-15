@@ -1,7 +1,7 @@
 /**
  * Renders the Achilles demo video. Accepts either:
  *  - a local file path (e.g. /videos/achilles-demo.mp4) → native <video>
- *  - a YouTube or Loom share URL → responsive <iframe>
+ *  - a YouTube, Loom, or Google Drive share URL → responsive <iframe>
  * Falls back to a friendly placeholder when no source is set yet.
  */
 function toEmbedUrl(url: string): string | null {
@@ -15,6 +15,11 @@ function toEmbedUrl(url: string): string | null {
     }
     if (host.endsWith("loom.com")) {
       return url.replace("/share/", "/embed/");
+    }
+    if (host.endsWith("drive.google.com")) {
+      // .../file/d/<ID>/view  or  ...?id=<ID>
+      const id = url.match(/\/file\/d\/([^/]+)/)?.[1] ?? u.searchParams.get("id");
+      return id ? `https://drive.google.com/file/d/${id}/preview` : null;
     }
     return null;
   } catch {

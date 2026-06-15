@@ -70,9 +70,11 @@ export const projects: Project[] = [
       "n8n",
     ],
     // Paid product: demo video instead of source / live link.
-    // TODO: drop your demo video file at /public/videos/achilles-demo.mp4
-    // (or set this to a YouTube/Loom URL — VideoEmbed handles both).
-    links: { video: "/videos/achilles-demo.mp4" },
+    // Google Drive video (must stay shared as "Anyone with the link – Viewer").
+    links: {
+      video:
+        "https://drive.google.com/file/d/1R4GmY0C6kF3x6kmVcyM-N8fHuG4hVsOh/view?usp=sharing",
+    },
     metrics: [
       { label: "First token", value: "0.3–1s" },
       { label: "Time to first TTS audio", value: "~1s" },
