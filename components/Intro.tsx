@@ -110,7 +110,7 @@ export default function Intro() {
     };
     finishRef.current = finish;
 
-    const dur = 2000;
+    const dur = 4500;
     let start: number | undefined;
     const tick = (ts: number) => {
       if (start === undefined) start = ts;
@@ -170,15 +170,19 @@ export default function Intro() {
           closing ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        {/* Cyber background art (sits behind a dark scrim for legibility) */}
+        {/* Cyber background art (sits behind a light scrim for legibility) */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-25"
-          style={{ backgroundImage: "url(/images/intro-bg.jpg)" }}
+          className="pointer-events-none absolute inset-0 bg-cover opacity-[0.55]"
+          style={{
+            backgroundImage: "url(/images/intro-bg.jpg)",
+            backgroundPosition: "center 28%",
+            filter: "blur(1px)",
+          }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/75 via-background/85 to-background"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/45 via-background/65 to-background/95"
         />
         <div className="intro-scanlines pointer-events-none absolute inset-0 opacity-60" />
         <div
