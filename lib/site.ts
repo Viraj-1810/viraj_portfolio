@@ -21,7 +21,7 @@ export const site = {
   photo: "/images/viraj.jpg",
   socials: {
     github: "https://github.com/Viraj-1810",
-    linkedin: "https://www.linkedin.com/in/viraj-gupta-825824",
+    linkedin: "https://www.linkedin.com/in/viraj-gupta-825824253",
     fiverr: "",
   },
   // Headline numbers shown in the results band.
