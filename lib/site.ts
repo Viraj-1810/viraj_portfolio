@@ -5,7 +5,7 @@
  */
 export const site = {
   name: "Viraj Gupta",
-  // Production URL (used for absolute OG/canonical URLs + sitemap).
+  // Production URL — drives absolute OG/canonical URLs + sitemap (metadataBase).
   url: "https://virajportfolio1.vercel.app",
   role: "AI/ML & Full-Stack Developer",
   tagline:
