@@ -107,6 +107,33 @@ export const certifications: { name: string; issuer: string; date: string }[] = 
   },
 ];
 
+/** Real client testimonials (verbatim from Fiverr 5-star reviews). */
+export const testimonials: {
+  quote: string;
+  author: string;
+  location: string;
+  rating: number;
+  service: string;
+  tags: string[];
+}[] = [
+  {
+    quote: "Mannnnn! these guys are good and fast delivery.",
+    author: "Marcus G.",
+    location: "United States",
+    rating: 5,
+    service: "Voice-controlled AI desktop assistant with RAG & AI agents",
+    tags: ["Code expertise", "Delivery time", "Exceeded expectations"],
+  },
+  {
+    quote: "Great developer, easy to work with and quick responses.",
+    author: "razzalgul",
+    location: "United Kingdom",
+    rating: 5,
+    service: "Fully functional Jarvis AI assistant for PC",
+    tags: ["Proactive communication", "Quick responsiveness", "Politeness"],
+  },
+];
+
 export const education = {
   degree: "B.Tech, Computer Science",
   school: "Jaypee University of Engineering and Technology",

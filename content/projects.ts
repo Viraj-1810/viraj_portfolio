@@ -76,7 +76,7 @@ export const projects: Project[] = [
     metrics: [
       { label: "First token", value: "0.3–1s" },
       { label: "Time to first TTS audio", value: "~1s" },
-      { label: "Delivery", value: "1 desktop app" },
+      { label: "Client review", value: "5★" },
       { label: "Rebranding", value: "Per-buyer" },
     ],
     featured: true,
@@ -102,7 +102,7 @@ export const projects: Project[] = [
         "Distribution: non-technical install — packaged to a single .exe and wrote a remote-install runbook (SmartScreen, keys, n8n demo).",
       ],
       results: [
-        "Shipped to a paying client as a finished, installable product.",
+        "Shipped to a paying US client as a finished, installable product — earned a 5-star review (“these guys are good and fast delivery”).",
         "First token in 0.3–1s; first spoken audio ~1s after the first sentence.",
         "Same codebase rebrands per buyer — the basis for a repeatable productized offer.",
         "Live n8n integration: a spoken command fires a real workflow event end-to-end.",

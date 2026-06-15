@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ResultsStats from "@/components/ResultsStats";
 import ProjectGrid from "@/components/ProjectGrid";
 import SkillsSection from "@/components/SkillsSection";
+import Testimonials from "@/components/Testimonials";
 import ContactCTA from "@/components/ContactCTA";
 import SectionHeading from "@/components/SectionHeading";
 import { getFeaturedProjects } from "@/lib/projects";
@@ -47,6 +48,8 @@ export default function Home() {
       </section>
 
       <SkillsSection />
+
+      <Testimonials />
 
       <ContactCTA />
     </>
