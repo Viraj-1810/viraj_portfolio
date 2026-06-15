@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <section
         aria-labelledby="about-heading"
-        className="mx-auto max-w-3xl px-4 pt-16 sm:px-6 sm:pt-24"
+        className="mx-auto max-w-3xl px-4 pt-28 sm:px-6 sm:pt-28"
       >
         <SectionHeading
           id="about-heading"

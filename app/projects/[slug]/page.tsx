@@ -56,7 +56,7 @@ export default async function ProjectPage({
     <article>
       {/* Header */}
       <header className="border-b border-border">
-        <div className="mx-auto max-w-4xl px-4 pt-12 pb-10 sm:px-6 sm:pt-16">
+        <div className="mx-auto max-w-4xl px-4 pb-10 pt-28 sm:px-6 sm:pt-28">
           <Link
             href="/projects"
             className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-foreground"

@@ -17,7 +17,7 @@ export default function ProjectsPage() {
     <>
       <section
         aria-labelledby="projects-heading"
-        className="mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 sm:pt-24"
+        className="mx-auto max-w-6xl px-4 pb-10 pt-28 sm:px-6 sm:pt-28"
       >
         <SectionHeading
           id="projects-heading"

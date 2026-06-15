@@ -8,7 +8,7 @@ export default function Hero() {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden border-b border-border"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32 lg:grid-cols-[1.15fr_0.85fr]">
         {/* Left: intro / about me */}
         <div>
           <div className="flex flex-wrap items-center gap-3">

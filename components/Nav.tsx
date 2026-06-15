@@ -2,101 +2,89 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { site } from "@/lib/site";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+type Item = {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+  match: (path: string) => boolean;
+  accent?: boolean;
+};
+
+const I = {
+  home: (
+    <path d="M3 11.5 12 4l9 7.5M5 10v10h5v-6h4v6h5V10" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  projects: (
+    <path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  about: (
+    <>
+      <circle cx="12" cy="8" r="3.4" strokeWidth="1.8" />
+      <path d="M5.5 20a6.5 6.5 0 0 1 13 0" strokeWidth="1.8" strokeLinecap="round" />
+    </>
+  ),
+  contact: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" strokeWidth="1.8" />
+      <path d="m4 7 8 6 8-6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+};
+
+const items: Item[] = [
+  { href: "/", label: "Home", icon: I.home, match: (p) => p === "/" },
+  { href: "/projects", label: "Projects", icon: I.projects, match: (p) => p.startsWith("/projects") },
+  { href: "/about", label: "About", icon: I.about, match: (p) => p.startsWith("/about") },
+  { href: "/#contact", label: "Contact", icon: I.contact, match: () => false, accent: true },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
-      <nav
-        aria-label="Primary"
-        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6"
-      >
-        <Link
-          href="/"
-          className="group flex items-center gap-2 font-bold tracking-tight"
-          aria-label={`${site.name}, home`}
-        >
-          <span
-            aria-hidden="true"
-            className="inline-block h-3 w-3 rounded-full bg-crimson shadow-[0_0_12px_var(--crimson)]"
-          />
-          {site.name}
-        </Link>
-
-        {/* Desktop nav */}
-        <ul className="hidden items-center gap-1 sm:flex">
-          {links.map((l) => (
-            <li key={l.href}>
+    <nav
+      aria-label="Primary"
+      className="fixed left-1/2 top-4 z-50 -translate-x-1/2"
+    >
+      <ul className="flex items-center gap-1 rounded-full border border-border-strong bg-surface/70 p-1.5 shadow-[0_8px_30px_-10px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+        {items.map((item) => {
+          const active = item.match(pathname);
+          return (
+            <li key={item.href} className="group relative">
               <Link
-                href={l.href}
-                aria-current={isActive(l.href) ? "page" : undefined}
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-foreground ${
-                  isActive(l.href) ? "text-foreground" : "text-muted"
+                href={item.href}
+                aria-label={item.label}
+                aria-current={active ? "page" : undefined}
+                className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors ${
+                  active
+                    ? "bg-crimson/15 text-crimson"
+                    : item.accent
+                      ? "text-crimson hover:bg-crimson/15"
+                      : "text-muted hover:bg-surface-2 hover:text-foreground"
                 }`}
               >
-                {l.label}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  {item.icon}
+                </svg>
+                {active && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-0.5 h-1 w-1 rounded-full bg-crimson shadow-[0_0_8px_var(--crimson)]"
+                  />
+                )}
               </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/#contact"
-              className="ml-2 rounded-lg bg-crimson px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-crimson-bright"
-            >
-              Get in touch
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-lg border border-border p-2 sm:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label="Toggle navigation menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      {open && (
-        <ul id="mobile-menu" className="border-t border-border px-4 py-2 sm:hidden">
-          {[...links, { href: "/#contact", label: "Get in touch" }].map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                onClick={() => setOpen(false)}
-                aria-current={isActive(l.href) ? "page" : undefined}
-                className="block rounded-lg px-3 py-3 text-base font-medium text-muted hover:text-foreground"
+              {/* tooltip */}
+              <span
+                role="tooltip"
+                className="font-code pointer-events-none absolute left-1/2 top-[120%] -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-surface px-2 py-1 text-xs text-foreground opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
               >
-                {l.label}
-              </Link>
+                {item.label}
+              </span>
             </li>
-          ))}
-        </ul>
-      )}
-    </header>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
