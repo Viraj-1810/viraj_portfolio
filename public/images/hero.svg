@@ -2,7 +2,7 @@
   
   <defs>
     <radialGradient id="glow-h" cx="78%" cy="18%" r="60%">
-      <stop offset="0%" stop-color="#00ff7a" stop-opacity="0.55"/>
+      <stop offset="0%" stop-color="#00ff7a" stop-opacity="0.5"/>
       <stop offset="45%" stop-color="#00ff7a" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="#00ff7a" stop-opacity="0"/>
     </radialGradient>

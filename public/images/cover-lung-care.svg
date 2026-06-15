@@ -2,9 +2,9 @@
   
   <defs>
     <radialGradient id="glow-l" cx="50%" cy="35%" r="60%">
-      <stop offset="0%" stop-color="#00ff7a" stop-opacity="0.55"/>
-      <stop offset="45%" stop-color="#00ff7a" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#00ff7a" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.5"/>
+      <stop offset="45%" stop-color="#2dd4bf" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="fade-l" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#070d0a" stop-opacity="0"/>
@@ -22,17 +22,17 @@
       C 580 257.5, 470 247.5, 480 347.5
       C 485 427.5, 560 447.5, 580 387.5
       C 588 347.5, 588 287.5, 600 207.5 Z"
-      fill="none" stroke="#00ff7a" stroke-opacity="0.7" stroke-width="2"/><path d="M 600 207.5
+      fill="none" stroke="#2dd4bf" stroke-opacity="0.7" stroke-width="2"/><path d="M 600 207.5
       C 620 257.5, 730 247.5, 720 347.5
       C 715 427.5, 640 447.5, 620 387.5
       C 612 347.5, 612 287.5, 600 207.5 Z"
-      fill="none" stroke="#00ff7a" stroke-opacity="0.7" stroke-width="2"/>
-     <line x1="600" y1="177.5" x2="600" y2="467.5" stroke="#00ff7a" stroke-opacity="0.5" stroke-width="2"/>
-     <circle cx="530" cy="307.5" r="5" fill="#29c6ff" opacity="0.9"/><circle cx="670" cy="307.5" r="5" fill="#29c6ff" opacity="0.9"/><circle cx="545" cy="367.5" r="5" fill="#29c6ff" opacity="0.9"/><circle cx="660" cy="362.5" r="5" fill="#29c6ff" opacity="0.9"/><circle cx="520" cy="337.5" r="5" fill="#29c6ff" opacity="0.9"/><circle cx="685" cy="327.5" r="5" fill="#29c6ff" opacity="0.9"/>
-     <rect x="400" y="417.5" width="400" height="2" fill="#29c6ff" opacity="0.5"/>
+      fill="none" stroke="#2dd4bf" stroke-opacity="0.7" stroke-width="2"/>
+     <line x1="600" y1="177.5" x2="600" y2="467.5" stroke="#2dd4bf" stroke-opacity="0.5" stroke-width="2"/>
+     <circle cx="530" cy="307.5" r="5" fill="#5eead4" opacity="0.9"/><circle cx="670" cy="307.5" r="5" fill="#5eead4" opacity="0.9"/><circle cx="545" cy="367.5" r="5" fill="#5eead4" opacity="0.9"/><circle cx="660" cy="362.5" r="5" fill="#5eead4" opacity="0.9"/><circle cx="520" cy="337.5" r="5" fill="#5eead4" opacity="0.9"/><circle cx="685" cy="327.5" r="5" fill="#5eead4" opacity="0.9"/>
+     <rect x="400" y="417.5" width="400" height="2" fill="#5eead4" opacity="0.5"/>
   <rect width="1200" height="675" fill="url(#fade-l)"/>
   <line x1="26" y1="26" x2="48" y2="26" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="26" x2="26" y2="48" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="26" x2="1152" y2="26" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="26" x2="1174" y2="48" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="649" x2="48" y2="649" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="649" x2="26" y2="627" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="649" x2="1152" y2="649" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="649" x2="1174" y2="627" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/>
   <text x="600" y="635" text-anchor="middle"
     font-family="ui-monospace, monospace" font-size="20" letter-spacing="6"
-    fill="#ffffff" fill-opacity="0.55">RESNET50 // CHEST X-RAY</text>
+    fill="#2dd4bf" fill-opacity="0.65">RESNET50 // CHEST X-RAY</text>
 </svg>
