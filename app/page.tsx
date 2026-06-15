@@ -28,7 +28,7 @@ export default function Home() {
             id="featured-heading"
             eyebrow="Selected work"
             title="Featured projects"
-            description="A paid, shipped product and a deep-learning system — plus more on the projects page."
+            description="A paid, shipped product and a deep-learning system, plus more on the projects page."
           />
           <Link
             href="/projects"
@@ -38,7 +38,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-10">
-          <ProjectGrid projects={featured} />
+          <ProjectGrid projects={featured} columns={2} />
         </div>
         <div className="mt-8 sm:hidden">
           <Link href="/projects" className="text-sm font-semibold text-crimson">

@@ -23,7 +23,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project not found" };
 
-  const title = `${project.name} — ${project.tagline}`;
+  const title = `${project.name} · ${project.tagline}`;
   return {
     title: project.name,
     description: project.summary,
@@ -102,7 +102,7 @@ export default async function ProjectPage({
                 href={project.links.demo}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-crimson px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-crimson-bright"
+                className="inline-flex items-center gap-2 rounded-lg bg-crimson px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-crimson-bright"
               >
                 Live demo
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -112,7 +112,7 @@ export default async function ProjectPage({
             )}
             {!project.links.github && !project.links.demo && project.links.video && (
               <span className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-muted">
-                Paid product — see the demo below
+                Paid product, see the demo below
               </span>
             )}
           </div>

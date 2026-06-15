@@ -27,7 +27,7 @@ export default function Nav() {
         <Link
           href="/"
           className="group flex items-center gap-2 font-bold tracking-tight"
-          aria-label={`${site.name} — home`}
+          aria-label={`${site.name}, home`}
         >
           <span
             aria-hidden="true"
@@ -54,7 +54,7 @@ export default function Nav() {
           <li>
             <Link
               href="/#contact"
-              className="ml-2 rounded-lg bg-crimson px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-crimson-bright"
+              className="ml-2 rounded-lg bg-crimson px-4 py-2 text-sm font-semibold text-background transition-colors hover:bg-crimson-bright"
             >
               Get in touch
             </Link>

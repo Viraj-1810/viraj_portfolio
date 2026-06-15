@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name} — ${site.role}`;
+export const alt = `${site.name} · ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,7 +41,7 @@ export default function OgImage() {
             {site.name}
           </div>
           <div style={{ fontSize: 36, color: "#a7a0a3", marginTop: 16, maxWidth: 900 }}>
-            AI products that ship — LLM apps, voice assistants, and custom automation.
+            AI products that ship: LLM apps, voice assistants, and custom automation.
           </div>
         </div>
 

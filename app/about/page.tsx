@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const highlights = [
-  "Shipped a paid, white-label voice-assistant product as a one-click desktop app.",
+  "Shipped a paid, white-label voice assistant product as a one-click desktop app.",
   "5-star reviews and a 100% completion rate across international freelance clients.",
-  "Built RAG systems with FAISS and local HuggingFace embeddings — private and cost-free to run.",
-  "Deep-learning experience in medical imaging (ResNet50 + autoencoder hybrids).",
+  "Built RAG systems with FAISS and local HuggingFace embeddings, private and free to run.",
+  "Deep-learning experience in medical imaging (ResNet50 plus autoencoder hybrids).",
 ];
 
 export default function AboutPage() {
@@ -30,14 +30,24 @@ export default function AboutPage() {
           description={site.role}
         />
         <div className="mt-8 space-y-5 text-muted">
-          <p>{site.shortBio}</p>
           <p>
-            Most of my work lives at the intersection of LLMs and real products:
-            streaming chat with inline text-to-speech, retrieval-augmented
-            assistants grounded in a user&apos;s own files, and NLP services that
-            turn messy human language into structured actions. I care about
-            latency, reliability, and shipping things people actually pay for —
-            not just demos.
+            I&apos;m an AI developer who loves turning everyday ideas into
+            futuristic tools that feel alive. I build desktop AI assistants,
+            automation systems, generative AI apps, and intelligent chatbots
+            that work fast, look clean, and run reliably.
+          </p>
+          <p>
+            I&apos;ve shipped everything from AI coding copilots and PDF chat RAG
+            systems to traffic prediction apps and custom voice-controlled
+            desktop assistants with wake words, themed UIs, and cross-app
+            automation. My work blends creativity with solid engineering, so
+            clients get tools that feel effortless and genuinely powerful.
+          </p>
+          <p>
+            Recently I delivered Achilles, a white-label voice assistant
+            packaged as a one-click desktop app, to a paying client in the US,
+            and I keep a 100% completion rate with 5-star reviews across
+            international projects.
           </p>
         </div>
 
@@ -64,14 +74,10 @@ export default function AboutPage() {
         </h2>
         <ol className="mt-8 space-y-8">
           {experience.map((job) => (
-            <li
-              key={`${job.org}-${job.role}`}
-              className="border-l border-border pl-5"
-            >
+            <li key={`${job.org}-${job.role}`} className="border-l border-border pl-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="font-semibold">
-                  {job.role} ·{" "}
-                  <span className="text-crimson">{job.org}</span>
+                  {job.role} · <span className="text-crimson">{job.org}</span>
                 </h3>
                 <span className="text-sm text-muted">{job.period}</span>
               </div>
@@ -100,24 +106,35 @@ export default function AboutPage() {
           Certifications &amp; education
         </h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          <ul className="space-y-4">
-            {certifications.map((c) => (
-              <li
-                key={c.name}
-                className="rounded-xl border border-border bg-surface p-4"
-              >
-                <p className="font-medium">{c.name}</p>
-                <p className="mt-1 text-sm text-muted">
-                  {c.issuer} · {c.date}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <div className="rounded-xl border border-border bg-surface p-4">
-            <p className="font-medium">{education.degree}</p>
-            <p className="mt-1 text-sm text-muted">{education.school}</p>
-            <p className="text-sm text-muted">{education.location}</p>
-            <p className="mt-2 text-sm text-crimson">{education.period}</p>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-crimson">
+              Certifications
+            </h3>
+            <ul className="mt-4 space-y-4">
+              {certifications.map((c) => (
+                <li key={c.name} className="rounded-xl border border-border bg-surface p-4">
+                  <p className="font-medium">{c.name}</p>
+                  <p className="mt-1 text-sm text-muted">
+                    {c.issuer} · {c.date}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-crimson">
+              Education
+            </h3>
+            <ul className="mt-4 space-y-4">
+              {education.map((e) => (
+                <li key={e.school} className="rounded-xl border border-border bg-surface p-4">
+                  <p className="font-medium">{e.degree}</p>
+                  <p className="mt-1 text-sm text-muted">{e.school}</p>
+                  <p className="text-sm text-muted">{e.location}</p>
+                  <p className="mt-2 text-sm text-crimson">{e.period}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

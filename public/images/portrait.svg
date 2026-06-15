@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="600" height="720" role="img">
+  <defs>
+    <radialGradient id="pg" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#0f1b14"/>
+      <stop offset="100%" stop-color="#050806"/>
+    </radialGradient>
+    <linearGradient id="pr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ff66"/>
+      <stop offset="100%" stop-color="#0c4a2a"/>
+    </linearGradient>
+    <filter id="pb"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="600" height="720" fill="url(#pg)"/>
+  <circle cx="300" cy="300" r="150" fill="#00ff66" opacity="0.18" filter="url(#pb)"/>
+  <!-- silhouette -->
+  <g fill="none" stroke="url(#pr)" stroke-width="6" stroke-linecap="round">
+    <circle cx="300" cy="265" r="78"/>
+    <path d="M186 470 C186 372 414 372 414 470"/>
+  </g>
+  <circle cx="300" cy="265" r="78" fill="#00ff66" opacity="0.08"/>
+  <text x="300" y="566" text-anchor="middle" font-family="ui-monospace, monospace" font-size="64" font-weight="700" fill="#d9ffe8" letter-spacing="6">VG</text>
+  <text x="300" y="612" text-anchor="middle" font-family="ui-monospace, monospace" font-size="20" fill="#84a994" letter-spacing="4">ADD YOUR PHOTO</text>
+  <!-- frame ticks -->
+  <g stroke="#00ff66" stroke-opacity="0.5" stroke-width="3">
+    <path d="M28 28 h34 M28 28 v34"/>
+    <path d="M572 28 h-34 M572 28 v34"/>
+    <path d="M28 692 h34 M28 692 v-34"/>
+    <path d="M572 692 h-34 M572 692 v-34"/>
+  </g>
+</svg>

@@ -7,7 +7,7 @@ import { getAllProjects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "AI/ML and full-stack projects — a shipped voice-assistant product, deep-learning systems, RAG copilots, and NLP tools.",
+    "AI/ML and full-stack projects: a shipped voice assistant product, deep-learning systems, RAG copilots, and NLP tools.",
 };
 
 export default function ProjectsPage() {
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
           id="projects-heading"
           eyebrow="Portfolio"
           title="Projects & case studies"
-          description="Selected AI/ML and full-stack work — each links to a detailed case study covering the problem, architecture, and results."
+          description="Selected AI/ML and full-stack work. Each links to a detailed case study covering the problem, architecture, and results."
         />
       </section>
       <div className="mx-auto max-w-6xl px-4 pb-10 sm:px-6">

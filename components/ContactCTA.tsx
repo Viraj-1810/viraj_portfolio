@@ -20,13 +20,14 @@ export default function ContactCTA() {
             Have an AI product to build?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted">
-            I build LLM apps, voice assistants, and custom AI automation — from
-            prototype to a packaged product you can ship. Tell me what you need.
+            I build LLM apps, voice assistants, and custom AI automation, from
+            prototype to a packaged product you can ship. Whether you have a
+            project in mind or an AI/ML role to fill, let&apos;s talk.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex w-full items-center justify-center rounded-xl bg-crimson px-6 py-3 font-semibold text-white transition-colors hover:bg-crimson-bright sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-crimson px-6 py-3 font-semibold text-background transition-colors hover:bg-crimson-bright sm:w-auto"
             >
               Email me
             </a>
@@ -41,7 +42,8 @@ export default function ContactCTA() {
               </a>
             )}
           </div>
-          <p className="mt-6 text-sm text-muted">{site.location}</p>
+          <p className="mt-8 font-medium text-foreground">{site.availability}.</p>
+          <p className="mt-1 text-sm text-muted">{site.location}</p>
         </div>
       </div>
     </section>

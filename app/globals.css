@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------ */
-/* Design tokens — crimson-black tactical theme                        */
+/* Design tokens — Matrix green-on-black hacker theme.                  */
+/* NOTE: the accent tokens are still named `crimson` (legacy) so the    */
+/* whole UI can be re-themed by editing these values only. They now     */
+/* hold Matrix green.                                                    */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #0a0708;
-  --surface: #120d0f;
-  --surface-2: #1a1316;
-  --foreground: #f3eff0;
-  --muted: #a7a0a3;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --crimson: #e11d34;
-  --crimson-bright: #ff3350;
-  --crimson-dim: #7c1322;
+  --background: #050806;
+  --surface: #0a120d;
+  --surface-2: #0f1b14;
+  --foreground: #d9ffe8;
+  --muted: #84a994;
+  --border: rgba(120, 255, 180, 0.1);
+  --border-strong: rgba(120, 255, 180, 0.22);
+  --crimson: #00ff66; /* accent */
+  --crimson-bright: #66ffa0; /* accent-bright */
+  --crimson-dim: #0c4a2a; /* accent-dim */
 }
 
 @theme inline {
@@ -46,21 +49,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle tactical backdrop: radial crimson glow + faint grid */
+/* Vignette + faint green top glow over the animated rain (canvas sits
+   further back at -z-10). Centre stays clear so the rain reads. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -5;
   background:
-    radial-gradient(60rem 40rem at 75% -10%, rgba(225, 29, 52, 0.14), transparent 60%),
-    radial-gradient(50rem 40rem at 0% 10%, rgba(124, 19, 34, 0.1), transparent 55%);
+    radial-gradient(58rem 34rem at 22% -10%, rgba(0, 255, 122, 0.1), transparent 60%),
+    radial-gradient(58rem 34rem at 82% 2%, rgba(34, 184, 255, 0.1), transparent 60%),
+    radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.85) 100%);
   pointer-events: none;
 }
 
 ::selection {
   background: var(--crimson);
-  color: #fff;
+  color: #04140b;
 }
 
 /* Keyboard focus — visible everywhere */
@@ -82,10 +87,10 @@ a {
   top: -3rem;
   z-index: 100;
   background: var(--crimson);
-  color: #fff;
+  color: #04140b;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: top 0.2s ease;
 }
 .skip-link:focus {
@@ -94,10 +99,15 @@ a {
 
 /* Gradient text helper */
 .text-gradient {
-  background: linear-gradient(110deg, #fff 10%, var(--crimson-bright) 90%);
+  background: linear-gradient(110deg, #eafff2 10%, var(--crimson) 90%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Monospace "code" accent for the hacker vibe */
+.font-code {
+  font-family: var(--font-mono), ui-monospace, monospace;
 }
 
 /* Scrollbar */
