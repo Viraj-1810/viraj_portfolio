@@ -6,6 +6,7 @@ export default function ContactCTA() {
       id="contact"
       aria-labelledby="contact-heading"
       className="mx-auto max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6"
+      data-reveal
     >
       <div className="relative overflow-hidden rounded-3xl border border-border bg-surface px-6 py-14 text-center sm:px-12">
         <div

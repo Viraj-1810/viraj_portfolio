@@ -5,6 +5,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import SkillsSection from "@/components/SkillsSection";
 import Testimonials from "@/components/Testimonials";
 import ContactCTA from "@/components/ContactCTA";
+import Marquee from "@/components/Marquee";
 import SectionHeading from "@/components/SectionHeading";
 import { getFeaturedProjects } from "@/lib/projects";
 
@@ -15,13 +16,16 @@ export default function Home() {
     <>
       <Hero />
 
-      <div className="mt-16">
+      <Marquee />
+
+      <div className="mt-16" data-reveal>
         <ResultsStats />
       </div>
 
       <section
         aria-labelledby="featured-heading"
         className="mx-auto max-w-6xl px-4 py-20 sm:px-6"
+        data-reveal
       >
         <div className="flex items-end justify-between gap-4">
           <SectionHeading

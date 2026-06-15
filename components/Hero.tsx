@@ -11,10 +11,15 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.15fr_0.85fr]">
         {/* Left: intro / about me */}
         <div>
-          <p className="font-code inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/60 px-4 py-1.5 text-sm text-crimson backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-crimson shadow-[0_0_10px_var(--crimson)]" />
-            {site.role}
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="font-code inline-flex items-center gap-2 rounded-full border border-crimson-dim bg-crimson/10 px-4 py-1.5 text-sm font-medium text-crimson">
+              <span className="pulse-dot h-2 w-2 rounded-full bg-crimson" />
+              Available for work
+            </span>
+            <span className="font-code inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/60 px-4 py-1.5 text-sm text-muted backdrop-blur">
+              {site.role}
+            </span>
+          </div>
 
           <h1
             id="hero-heading"

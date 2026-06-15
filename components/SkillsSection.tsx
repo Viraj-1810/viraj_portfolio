@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function SkillsSection() {
   return (
-    <section aria-labelledby="skills-heading" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <section aria-labelledby="skills-heading" className="mx-auto max-w-6xl px-4 py-20 sm:px-6" data-reveal>
       <SectionHeading
         id="skills-heading"
         eyebrow="Toolbox"

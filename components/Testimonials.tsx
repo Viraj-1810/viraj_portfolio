@@ -30,6 +30,7 @@ export default function Testimonials() {
     <section
       aria-labelledby="testimonials-heading"
       className="mx-auto max-w-6xl px-4 py-20 sm:px-6"
+      data-reveal
     >
       <SectionHeading
         id="testimonials-heading"

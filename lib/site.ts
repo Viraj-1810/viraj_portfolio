@@ -26,7 +26,7 @@ export const site = {
   },
   // Headline numbers shown in the results band.
   stats: [
-    { label: "In client sales", value: "$260" },
+    { label: "In client sales", value: "$250+" },
     { label: "Order completion", value: "100%" },
     { label: "International reviews", value: "5★" },
     { label: "Certified Developer", value: "AWS" },
@@ -77,7 +77,7 @@ export const experience: {
     period: "Jan 2026 to Present",
     points: [
       "Build and ship custom AI assistants and automation for international clients, earning 5-star reviews for delivery speed and code quality.",
-      "$260 in freelance sales at a 100% order completion rate across global clients.",
+      "$250+ in freelance sales at a 100% order completion rate across global clients.",
       "Productized a tactical voice assistant into Achilles, a rebrandable, one-click desktop app.",
     ],
   },
