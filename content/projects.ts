@@ -182,7 +182,7 @@ export const projects: Project[] = [
       { label: "Significance", value: "t-stats" },
       { label: "Output", value: "PDF reports" },
     ],
-    featured: true,
+    featured: false,
     caseStudy: {
       problem:
         "Strategies that look great on a chart often have no real edge. The client needed to know whether a strategy would actually hold up before risking money, not a hyped in-sample result.",

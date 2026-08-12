@@ -17,14 +17,11 @@ mkdirSync(OUT, { recursive: true });
 const base = process.env.SITE_URL || "https://virajportfolio1.vercel.app";
 
 const pages = [
+  ["09-achilles-trading-bot", "/projects/achilles-trading-bot", false],
+  ["10-achilles-pro-dashboard", "/projects/achilles-pro-dashboard", false],
+  ["11-strategy-backtesting", "/projects/strategy-backtesting-engine", false],
   ["01-home", "/", false],
   ["02-projects", "/projects", false],
-  ["03-achilles", "/projects/achilles", false],
-  ["04-pneumonia-detection", "/projects/lung-care", false],
-  ["05-vscode-ai-copilot", "/projects/vscode-ai-copilot", false],
-  ["06-codemate-ai", "/projects/codemate-ai", false],
-  ["07-ai-meeting-scheduler", "/projects/ai-meeting-scheduler", false],
-  ["08-home-fullpage", "/", true],
 ];
 
 const browser = await chromium.launch();

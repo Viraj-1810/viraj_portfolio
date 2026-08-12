@@ -32,7 +32,7 @@ export default function Home() {
             id="featured-heading"
             eyebrow="Selected work"
             title="Featured projects"
-            description="A live automated-trading system: execution bot, real-time control dashboard, and a strategy-backtesting engine, all built for a paying client."
+            description="A live automated-trading system (execution bot and real-time control dashboard) and a shipped white-label voice assistant, all built for paying clients."
           />
           <Link
             href="/projects"
