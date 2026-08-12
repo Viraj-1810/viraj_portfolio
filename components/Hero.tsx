@@ -52,11 +52,11 @@ export default function Hero() {
           <dl className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-code text-sm">
             <div>
               <dt className="text-muted">clients</dt>
-              <dd className="font-semibold text-crimson">5★ · US &amp; UK</dd>
+              <dd className="font-semibold text-crimson">4.9★ · 9 orders</dd>
             </div>
             <div>
               <dt className="text-muted">shipped</dt>
-              <dd className="font-semibold text-crimson">Achilles (paid)</dd>
+              <dd className="font-semibold text-crimson">Live trading bot</dd>
             </div>
             <div>
               <dt className="text-muted">cert</dt>

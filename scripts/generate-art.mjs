@@ -172,6 +172,81 @@ function hero() {
 </svg>`;
 }
 
+// Rising equity curve within a bounding box (shared by trading motifs).
+function equityCurve(C, B, xL, xR, yTop, yBot, area) {
+  const ys = [0.16, 0.06, 0.26, 0.34, 0.22, 0.48, 0.6, 0.52, 0.74, 0.8, 0.94, 1.0];
+  const n = ys.length;
+  const pts = ys.map((v, i) => [xL + ((xR - xL) * i) / (n - 1), yBot - (yBot - yTop) * v]);
+  const poly = pts.map((p) => `${p[0].toFixed(0)},${p[1].toFixed(0)}`).join(" ");
+  const areaEl = area
+    ? `<polygon points="${xL.toFixed(0)},${yBot.toFixed(0)} ${poly} ${xR.toFixed(0)},${yBot.toFixed(0)}" fill="${C}" fill-opacity="0.14"/>`
+    : "";
+  const lineEl = `<polyline points="${poly}" fill="none" stroke="${C}" stroke-width="3" stroke-linejoin="round"/>`;
+  const dot = `<circle cx="${pts[n - 1][0].toFixed(0)}" cy="${pts[n - 1][1].toFixed(0)}" r="5" fill="${B}"/>`;
+  return `${areaEl}${lineEl}${dot}`;
+}
+
+// Trading bot: rising candlesticks + a BUY signal
+function tradingBot(C, B) {
+  const heights = [40, 55, 35, 60, 45, 70, 50, 80, 65, 92, 78];
+  const n = heights.length, gap = 42, x0 = cx - ((n - 1) * gap) / 2;
+  let cs = "", lastX = 0, lastTop = 0;
+  for (let i = 0; i < n; i++) {
+    const x = x0 + i * gap;
+    const up = i % 3 !== 1;
+    const bh = heights[i];
+    const yTop = cy + 80 - i * 9 - bh;
+    const col = up ? C : B;
+    cs += `<line x1="${x.toFixed(0)}" y1="${(yTop - 16).toFixed(0)}" x2="${x.toFixed(0)}" y2="${(yTop + bh + 16).toFixed(0)}" stroke="${col}" stroke-opacity="0.5" stroke-width="2"/>`;
+    cs += `<rect x="${(x - 8).toFixed(0)}" y="${yTop.toFixed(0)}" width="16" height="${bh}" rx="2" fill="${col}" fill-opacity="${up ? 0.8 : 0.4}"/>`;
+    lastX = x; lastTop = yTop;
+  }
+  const ly = lastTop - 46;
+  const sig = `<g>
+    <path d="M ${lastX.toFixed(0)} ${(ly + 26).toFixed(0)} L ${lastX.toFixed(0)} ${ly.toFixed(0)}" stroke="${B}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M ${(lastX - 9).toFixed(0)} ${(ly + 9).toFixed(0)} L ${lastX.toFixed(0)} ${ly.toFixed(0)} L ${(lastX + 9).toFixed(0)} ${(ly + 9).toFixed(0)}" fill="none" stroke="${B}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="${(lastX - 34).toFixed(0)}" y="${(ly - 36).toFixed(0)}" width="68" height="26" rx="6" fill="${C}"/>
+    <text x="${lastX.toFixed(0)}" y="${(ly - 17).toFixed(0)}" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" font-weight="700" fill="#04140b">BUY</text>
+  </g>`;
+  return wrap("tb", W, H, 45, 32, `${cs}${sig}`, "TRADINGVIEW // LIVE EXECUTION", C);
+}
+
+// Trading dashboard: tiles + equity area chart in a panel
+function tradingDashboard(C, B) {
+  const pw = 560, ph = 320, px = cx - pw / 2, py = cy - ph / 2;
+  const colW = (pw - 40) / 3;
+  const tiles = [0, 1, 2]
+    .map((i) => {
+      const tx = px + 20 + i * colW;
+      return `<g>
+      <rect x="${tx.toFixed(0)}" y="${py + 20}" width="${(colW - 12).toFixed(0)}" height="58" rx="8" fill="#0f1b14" stroke="${C}" stroke-opacity="0.4"/>
+      <rect x="${(tx + 14).toFixed(0)}" y="${py + 34}" width="58" height="8" rx="4" fill="#fff" fill-opacity="0.22"/>
+      <rect x="${(tx + 14).toFixed(0)}" y="${py + 50}" width="92" height="12" rx="4" fill="${C}" fill-opacity="0.8"/>
+    </g>`;
+    })
+    .join("");
+  const chart = equityCurve(C, B, px + 26, px + pw - 26, py + 108, py + ph - 26, true);
+  return wrap("td", W, H, 50, 32,
+    `<rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="16" fill="#0a120d" stroke="${C}" stroke-opacity="0.5"/>
+     ${tiles}
+     <rect x="${px + 20}" y="${py + 96}" width="${pw - 40}" height="${ph - 116}" rx="10" fill="#0f1b14"/>
+     ${chart}`,
+    "REALTIME // CONTROL DASHBOARD", C);
+}
+
+// Backtesting: strategy curve vs baseline + validation check
+function backtesting(C, B) {
+  const xL = cx - 260, xR = cx + 260, yTop = cy - 70, yBot = cy + 110;
+  const strat = equityCurve(C, B, xL, xR, yTop, yBot, false);
+  const bys = [0.2, 0.24, 0.18, 0.28, 0.22, 0.3, 0.26, 0.34, 0.28, 0.33, 0.3, 0.36];
+  const bpts = bys.map((v, i) => [xL + ((xR - xL) * i) / (bys.length - 1), yBot - (yBot - yTop) * v]);
+  const bpoly = bpts.map((p) => `${p[0].toFixed(0)},${p[1].toFixed(0)}`).join(" ");
+  const baseline = `<polyline points="${bpoly}" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="5 6"/>`;
+  const bx = cx + 205, by = cy - 118;
+  const check = `<g><circle cx="${bx}" cy="${by}" r="26" fill="${C}"/><path d="M ${bx - 11} ${by} l 7 8 l 15 -17" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return wrap("bt", W, H, 45, 30, `${baseline}${strat}${check}`, "BACKTEST // VALIDATION", C);
+}
+
 // One distinct accent per project = a mixed, varied grid.
 const files = {
   "hero.svg": hero(),
@@ -180,6 +255,9 @@ const files = {
   "cover-vscode-copilot.svg": vscode("#00ff7a", "#29c6ff"), // green + blue
   "cover-codemate.svg": codemate("#a78bfa", "#c4b5fd"), // violet
   "cover-meeting-scheduler.svg": scheduler("#38bdf8", "#7dd3fc"), // blue
+  "cover-trading-bot.svg": tradingBot("#22e06a", "#7bf5a8"), // green
+  "cover-trading-dashboard.svg": tradingDashboard("#10b981", "#6ee7b7"), // emerald
+  "cover-backtesting.svg": backtesting("#f5a623", "#ffcf6b"), // amber
 };
 
 for (const [name, svg] of Object.entries(files)) {

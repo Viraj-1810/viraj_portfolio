@@ -10,11 +10,11 @@ export const site = {
   url: "https://virajportfolio1.vercel.app",
   role: "AI/ML & Full-Stack Developer",
   tagline:
-    "I build voice assistants, LLM apps, and custom AI automation, shipped to real, paying clients across the world.",
+    "I build AI assistants, LLM apps, and automated trading systems, shipped to real, paying clients across the world.",
   shortBio:
-    "I build production AI: retrieval augmented LLM apps, real-time voice assistants, and deep-learning systems. I turn research grade ideas into packaged products people pay for, with a 100% completion rate and 5-star reviews from international clients.",
+    "I build production software: retrieval augmented LLM apps, real-time voice assistants, deep-learning systems, and live automated-trading bots. I turn research grade ideas into reliable products people pay for, with 9 delivered orders and a 4.9-star average from international clients.",
   heroBio:
-    "Computer Science graduate and freelance AI developer. I ship voice assistants, LLM apps and custom automation for real clients: fast, reliable, and built to last.",
+    "Computer Science graduate and freelance developer. I ship AI assistants, LLM apps, and live automated-trading systems for real clients: fast, reliable, and built to last.",
   email: "viraj1810@gmail.com",
   location: "India · Remote",
   availability: "Open to freelance projects and full-time AI/ML roles",
@@ -27,10 +27,10 @@ export const site = {
   },
   // Headline numbers shown in the results band.
   stats: [
-    { label: "In client sales", value: "$250+" },
-    { label: "Order completion", value: "100%" },
-    { label: "International reviews", value: "5★" },
-    { label: "Certified Developer", value: "AWS" },
+    { label: "In client sales", value: "$2,100+" },
+    { label: "Orders delivered", value: "9" },
+    { label: "Average rating", value: "4.9★" },
+    { label: "On-time completion", value: "100%" },
   ],
 } as const;
 
@@ -60,6 +60,10 @@ export const skillGroups: { title: string; items: string[] }[] = [
     items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Streamlit", "WebGL / GLSL"],
   },
   {
+    title: "Trading & systems",
+    items: ["TradingView webhooks", "REST broker APIs", "Backtesting", "Risk management", "Recharts", "pytest", "Linux / systemd", "VPS deploy"],
+  },
+  {
     title: "Languages & tooling",
     items: ["C / C++", "Java", "Git", "Docker", "AWS", "GCP", "PyInstaller", "n8n", "Vercel"],
   },
@@ -77,9 +81,9 @@ export const experience: {
     org: "Fiverr",
     period: "Jan 2026 to Present",
     points: [
-      "Build and ship custom AI assistants and automation for international clients, earning 5-star reviews for delivery speed and code quality.",
-      "$250+ in freelance sales at a 100% order completion rate across global clients.",
-      "Productized a tactical voice assistant into Achilles, a rebrandable, one-click desktop app.",
+      "Design, build, and maintain custom AI assistants, automations, and live trading systems for international clients, with a 4.9-star average across 9 delivered orders.",
+      "$2,100+ in freelance sales at a 100% on-time completion rate, with repeat, ongoing-collaboration clients.",
+      "Shipped Achilles: a live automated stock-trading system (execution bot, real-time control dashboard, and backtesting engine) plus a rebrandable white-label voice assistant.",
     ],
   },
   {
@@ -123,12 +127,20 @@ export const testimonials: {
   tags: string[];
 }[] = [
   {
-    quote: "Mannnnn! these guys are good and fast delivery.",
+    quote: "as always Viraj gives great work. autotrade connect is right here.",
     author: "Marcus G.",
     location: "United States",
     rating: 5,
-    service: "Voice-controlled AI desktop assistant with RAG and AI agents",
-    tags: ["Code expertise", "Delivery time", "Exceeded expectations"],
+    service: "Automated trading bot (TradingView to live broker)",
+    tags: ["Repeat client", "Reliable delivery", "Ongoing collaboration"],
+  },
+  {
+    quote: "This guy is very good at what he does.",
+    author: "Marcus G.",
+    location: "United States",
+    rating: 5,
+    service: "Trading bot and automation development",
+    tags: ["Deep expertise", "Fast delivery", "Repeat client"],
   },
   {
     quote: "Great developer, easy to work with and quick responses.",
@@ -137,6 +149,14 @@ export const testimonials: {
     rating: 5,
     service: "Fully functional Jarvis AI assistant for PC",
     tags: ["Proactive communication", "Quick responsiveness", "Politeness"],
+  },
+  {
+    quote: "Mannnnn! these guys are good and fast delivery.",
+    author: "Marcus G.",
+    location: "United States",
+    rating: 5,
+    service: "Voice-controlled AI desktop assistant with RAG and AI agents",
+    tags: ["Code expertise", "Delivery time", "Exceeded expectations"],
   },
 ];
 

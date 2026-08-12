@@ -6,7 +6,11 @@
 
 export type Metric = { label: string; value: string };
 
-export type ProjectStatus = "Paid product" | "Open source" | "Collaboration";
+export type ProjectStatus =
+  | "Paid product"
+  | "Client work"
+  | "Open source"
+  | "Collaboration";
 
 export type Project = {
   slug: string;
@@ -39,6 +43,169 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "achilles-trading-bot",
+    name: "Achilles Trading Bot",
+    tagline: "Automated stock-trading execution engine, live on a real brokerage",
+    year: "2026",
+    role: "Sole developer",
+    status: "Client work",
+    summary:
+      "An end-to-end automated trading bot: TradingView strategy signals flow through a secure webhook to live broker execution, with automatic risk management, protective and self-managed trailing stops, and restart-safe position tracking. Built reliability-first for a paying client's live account.",
+    cover: "/images/cover-trading-bot.svg",
+    coverAlt:
+      "Rising candlestick chart with a BUY signal flowing into a live execution engine",
+    tech: [
+      "Python",
+      "Flask",
+      "REST broker API",
+      "TradingView webhooks",
+      "pytest",
+      "Linux VPS",
+      "systemd",
+      "Telegram Bot API",
+    ],
+    links: {},
+    metrics: [
+      { label: "Automated tests", value: "~180" },
+      { label: "Webhook ack", value: "< 3s" },
+      { label: "Status", value: "Live in production" },
+      { label: "Design", value: "Restart-safe" },
+    ],
+    featured: true,
+    caseStudy: {
+      problem:
+        "A client needed to run a TradingView strategy on a live brokerage account fully automatically. The bot had to acknowledge signals inside TradingView's 3 second window, manage risk on every trade, and never orphan an open position across a deploy or reboot.",
+      approach:
+        "I built a Flask webhook listener that authenticates each signal with a shared secret and parses tolerant JSON, then hands off to a pluggable broker interface so the broker can be swapped without touching the app. Orders are placed off-thread with atomic duplicate guarding, and the service fails safe on any broker error instead of crashing. Because the broker has no native trailing stop, a background monitor runs a self-managed one that ratchets the stop up as price rises.",
+      architecture: [
+        "Flask webhook listener with shared-secret auth and tolerant JSON parsing (handles copy-paste artefacts)",
+        "Pluggable broker interface, so brokers swap without touching app logic",
+        "Broker REST integration: whole-share sizing, market entry, and a protective stop",
+        "Self-managed trailing stop driven by a background monitor that ratchets up as price rises",
+        "Restart-safe: re-adopts open positions on startup from live broker state and attaches a stop to any unguarded position",
+        "Off-thread order placement with atomic one-position-per-symbol duplicate guarding",
+        "Safety layer: kill switch (pause / resume / flatten), daily max-loss limit, max-concurrent-positions cap, and a pre-flight buying-power check",
+        "Linux VPS with systemd auto-restart and an HTTPS reverse proxy; Telegram alerts to phone",
+      ],
+      challenges: [
+        "The broker has no native trailing stop, so a background monitor ratchets a self-managed stop up as price rises.",
+        "A deploy or reboot must never drop a trade, so on startup it rebuilds tracking from live broker state and guards any unprotected position.",
+        "TradingView allows only a 3 second ack window, so order placement runs off-thread while the webhook responds immediately.",
+        "Broker and network errors must never crash the service, so every call fails safe and doomed orders become clean skips.",
+      ],
+      results: [
+        "Live in production, handling real orders on a client's brokerage account.",
+        "About 180 automated tests, with an injectable HTTP layer for network-free testing.",
+        "Zero-downtime, restart-safe design proven across multiple live deploys.",
+        "Full safety envelope: kill switch, daily loss cap, position caps, and buying-power pre-checks.",
+      ],
+    },
+  },
+  {
+    slug: "achilles-pro-dashboard",
+    name: "Achilles PRO",
+    tagline: "Real-time control dashboard for the live trading bot",
+    year: "2026",
+    role: "Sole developer",
+    status: "Client work",
+    summary:
+      "A single-page web dashboard that reads the trading bot's live state and lets the operator run everything without touching the server: positions, P&L, equity curve, and self-serve risk controls that take effect on the very next signal, all in a polished dark terminal UI.",
+    cover: "/images/cover-trading-dashboard.svg",
+    coverAlt:
+      "Trading terminal dashboard with live tiles, an equity curve, and a positions table",
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Recharts",
+      "Custom polling hooks",
+    ],
+    links: {},
+    metrics: [
+      { label: "Data", value: "Real-time" },
+      { label: "Controls", value: "Self-serve, live" },
+      { label: "Front end", value: "Fully typed" },
+      { label: "Serving", value: "Same-origin, no Node" },
+    ],
+    featured: true,
+    caseStudy: {
+      problem:
+        "The operator needed to monitor and control the live bot without touching a server or editing config. Sizing, risk limits, and per-stock on/off switches all had to be adjustable from a browser and take effect on the next signal.",
+      approach:
+        "I built a typed React single-page app that polls the bot's live state and exposes every control through a secure API. Auth issues signed, expiring session tokens so the server secret never reaches the browser, with a separate read-only viewer key. The whole thing builds to a static bundle and is served same-origin from the Python backend, so production needs no Node.",
+      architecture: [
+        "Live tiles: total equity, available cash, today's P&L, win rate, and exposure, with an equity sparkline",
+        "Open-positions table (entry, last, protective stop, unrealized P&L, stop distance) and a persistent equity curve",
+        "Full trade history with one-click CSV export",
+        "Self-serve controls applied live: position sizing, trailing-stop percent, max positions, daily loss limit, per-stock mute, and pause / resume / flatten",
+        "Secure auth: signed, expiring session tokens plus a read-only viewer key",
+        "Built to a static bundle with Vite and served same-origin from the Python backend",
+      ],
+      challenges: [
+        "Controls had to change live behaviour safely, so every setting applies on the next signal without restarting the bot.",
+        "The server secret must never reach the browser, so auth uses signed, expiring session tokens.",
+        "Production had to stay Node-free, so the app ships as a static bundle served by the Python backend.",
+      ],
+      results: [
+        "A complete, typed, production dashboard grown from a few starter components.",
+        "The operator runs sizing, risk, and per-stock controls entirely self-serve.",
+        "Deployed and serving live data in a polished terminal-style UI.",
+      ],
+    },
+  },
+  {
+    slug: "strategy-backtesting-engine",
+    name: "Strategy Backtesting Engine",
+    tagline: "Faithful strategy validation that finds real edges before risking money",
+    year: "2026",
+    role: "Sole developer",
+    status: "Client work",
+    summary:
+      "A research pipeline that ports published TradingView (Pine Script) strategies to Python exactly, then stress-tests them on real market data with out-of-sample checks, statistical significance, and gap-aware fills. It delivers plain-English PDF verdicts, including when a strategy has no durable edge.",
+    cover: "/images/cover-backtesting.svg",
+    coverAlt:
+      "Equity curve versus a baseline with statistical validation markers and a report",
+    tech: [
+      "Python",
+      "pandas",
+      "NumPy",
+      "Statistical testing",
+      "yfinance",
+      "ReportLab",
+    ],
+    links: {},
+    metrics: [
+      { label: "Validation", value: "Out-of-sample" },
+      { label: "Fills", value: "Gap-aware" },
+      { label: "Significance", value: "t-stats" },
+      { label: "Output", value: "PDF reports" },
+    ],
+    featured: true,
+    caseStudy: {
+      problem:
+        "Strategies that look great on a chart often have no real edge. The client needed to know whether a strategy would actually hold up before risking money, not a hyped in-sample result.",
+      approach:
+        "I reproduce each Pine Script strategy in Python bar-for-bar (indicators use Wilder's RMA and SMA to match TradingView), then run realistic simulations with per-trade costs and gap-aware stop fills. Every strategy goes through out-of-sample testing, statistical significance, per-stock breakdowns, time-stability analysis, and cost sensitivity, and the result is a plain-English PDF with an honest verdict.",
+      architecture: [
+        "Faithful Pine Script to Python ports (Wilder's RMA / SMA to match TradingView bar-for-bar)",
+        "Realistic simulation: multi-year real daily data, per-trade costs and spreads, and gap-aware stop fills",
+        "Rigorous validation: out-of-sample testing, t-stat significance, per-stock breakdowns, does-one-stock-carry-it checks, regime and time-stability analysis, and cost sensitivity",
+        "Generated PDF reports with an honest verdict and concrete setup guidance",
+      ],
+      challenges: [
+        "Naive backtests miss gaps, so stop fills model a bar gapping through the stop for realistic results.",
+        "In-sample winners can be illusions, so significance testing and out-of-sample checks separate real edges from overfitting.",
+        "A repainting indicator drew its signals onto past bars, caught by reading its code before any money was risked.",
+      ],
+      results: [
+        "Repeatedly separated real edges from illusions across a range of strategies.",
+        "Caught a repainting indicator by code review and flagged overfit, regime-dependent winners that turned negative out-of-sample.",
+        "Honest verdicts, including 'this one does not work', built the client trust that led to repeat orders.",
+      ],
+    },
+  },
   {
     slug: "achilles",
     name: "Achilles",

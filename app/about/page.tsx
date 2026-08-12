@@ -10,8 +10,9 @@ export const metadata: Metadata = {
 };
 
 const highlights = [
+  "Built a live automated stock-trading system for a repeat client: execution bot, real-time dashboard, and a backtesting engine.",
+  "A 4.9-star average across 9 delivered orders with a 100% on-time completion rate.",
   "Shipped a paid, white-label voice assistant product as a one-click desktop app.",
-  "5-star reviews and a 100% completion rate across international freelance clients.",
   "Built RAG systems with FAISS and local HuggingFace embeddings, private and free to run.",
   "Deep-learning experience in medical imaging (ResNet50 plus autoencoder hybrids).",
 ];
@@ -44,10 +45,10 @@ export default function AboutPage() {
             clients get tools that feel effortless and genuinely powerful.
           </p>
           <p>
-            Recently I delivered Achilles, a white-label voice assistant
-            packaged as a one-click desktop app, to a paying client in the US,
-            and I keep a 100% completion rate with 5-star reviews across
-            international projects.
+            Recently I built a live automated stock-trading system for a repeat
+            US client (execution bot, real-time control dashboard, and a
+            strategy-backtesting engine), alongside a white-label voice
+            assistant. I keep a 4.9-star average across 9 delivered orders.
           </p>
         </div>
 

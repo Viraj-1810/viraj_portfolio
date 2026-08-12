@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img">
+  
+  <defs>
+    <radialGradient id="glow-td" cx="50%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.5"/>
+      <stop offset="45%" stop-color="#10b981" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade-td" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#070d0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#070d0a" stop-opacity="0.9"/>
+    </linearGradient>
+    <pattern id="grid-td" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <filter id="blur-td"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="#070d0a"/>
+  <rect width="1200" height="675" fill="url(#grid-td)"/>
+  <rect width="1200" height="675" fill="url(#glow-td)"/>
+  <rect x="320" y="157.5" width="560" height="320" rx="16" fill="#0a120d" stroke="#10b981" stroke-opacity="0.5"/>
+     <g>
+      <rect x="340" y="177.5" width="161" height="58" rx="8" fill="#0f1b14" stroke="#10b981" stroke-opacity="0.4"/>
+      <rect x="354" y="191.5" width="58" height="8" rx="4" fill="#fff" fill-opacity="0.22"/>
+      <rect x="354" y="207.5" width="92" height="12" rx="4" fill="#10b981" fill-opacity="0.8"/>
+    </g><g>
+      <rect x="513" y="177.5" width="161" height="58" rx="8" fill="#0f1b14" stroke="#10b981" stroke-opacity="0.4"/>
+      <rect x="527" y="191.5" width="58" height="8" rx="4" fill="#fff" fill-opacity="0.22"/>
+      <rect x="527" y="207.5" width="92" height="12" rx="4" fill="#10b981" fill-opacity="0.8"/>
+    </g><g>
+      <rect x="687" y="177.5" width="161" height="58" rx="8" fill="#0f1b14" stroke="#10b981" stroke-opacity="0.4"/>
+      <rect x="701" y="191.5" width="58" height="8" rx="4" fill="#fff" fill-opacity="0.22"/>
+      <rect x="701" y="207.5" width="92" height="12" rx="4" fill="#10b981" fill-opacity="0.8"/>
+    </g>
+     <rect x="340" y="253.5" width="520" height="204" rx="10" fill="#0f1b14"/>
+     <polygon points="346,452 346,422 392,440 438,403 485,388 531,411 577,362 623,340 669,355 715,314 762,303 808,277 854,266 854,452" fill="#10b981" fill-opacity="0.14"/><polyline points="346,422 392,440 438,403 485,388 531,411 577,362 623,340 669,355 715,314 762,303 808,277 854,266" fill="none" stroke="#10b981" stroke-width="3" stroke-linejoin="round"/><circle cx="854" cy="266" r="5" fill="#6ee7b7"/>
+  <rect width="1200" height="675" fill="url(#fade-td)"/>
+  <line x1="26" y1="26" x2="48" y2="26" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="26" x2="26" y2="48" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="26" x2="1152" y2="26" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="26" x2="1174" y2="48" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="649" x2="48" y2="649" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="26" y1="649" x2="26" y2="627" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="649" x2="1152" y2="649" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/><line x1="1174" y1="649" x2="1174" y2="627" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="600" y="635" text-anchor="middle"
+    font-family="ui-monospace, monospace" font-size="20" letter-spacing="6"
+    fill="#10b981" fill-opacity="0.65">REALTIME // CONTROL DASHBOARD</text>
+</svg>
