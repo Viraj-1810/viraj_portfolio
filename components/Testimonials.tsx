@@ -36,7 +36,7 @@ export default function Testimonials() {
         id="testimonials-heading"
         eyebrow="Client reviews"
         title="What clients say"
-        description="Verbatim client reviews from completed Fiverr orders: a 4.9-star average across 9 orders with international clients."
+        description="Verbatim 5-star reviews from completed Fiverr orders, across 9 orders with international clients."
       />
       <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
         {testimonials.map((t) => (

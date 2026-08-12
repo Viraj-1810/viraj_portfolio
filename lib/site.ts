@@ -12,7 +12,7 @@ export const site = {
   tagline:
     "I build AI assistants, LLM apps, and automated trading systems, shipped to real, paying clients across the world.",
   shortBio:
-    "I build production software: retrieval augmented LLM apps, real-time voice assistants, deep-learning systems, and live automated-trading bots. I turn research grade ideas into reliable products people pay for, with 9 delivered orders and a 4.9-star average from international clients.",
+    "I build production software: retrieval augmented LLM apps, real-time voice assistants, deep-learning systems, and live automated-trading bots. I turn research grade ideas into reliable products people pay for, with 9 delivered orders and 5-star reviews from international clients.",
   heroBio:
     "Computer Science graduate and freelance developer. I ship AI assistants, LLM apps, and live automated-trading systems for real clients: fast, reliable, and built to last.",
   email: "viraj1810@gmail.com",
@@ -29,7 +29,7 @@ export const site = {
   stats: [
     { label: "In client sales", value: "$2,100+" },
     { label: "Orders delivered", value: "9" },
-    { label: "Average rating", value: "4.9★" },
+    { label: "Client reviews", value: "5★" },
     { label: "On-time completion", value: "100%" },
   ],
 } as const;
@@ -81,7 +81,7 @@ export const experience: {
     org: "Fiverr",
     period: "Jan 2026 to Present",
     points: [
-      "Design, build, and maintain custom AI assistants, automations, and live trading systems for international clients, with a 4.9-star average across 9 delivered orders.",
+      "Design, build, and maintain custom AI assistants, automations, and live trading systems for international clients, earning 5-star reviews across 9 delivered orders.",
       "$2,100+ in freelance sales at a 100% on-time completion rate, with repeat, ongoing-collaboration clients.",
       "Shipped Achilles: a live automated stock-trading system (execution bot, real-time control dashboard, and backtesting engine) plus a rebrandable white-label voice assistant.",
     ],

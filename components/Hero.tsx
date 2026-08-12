@@ -52,7 +52,7 @@ export default function Hero() {
           <dl className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-code text-sm">
             <div>
               <dt className="text-muted">clients</dt>
-              <dd className="font-semibold text-crimson">4.9★ · 9 orders</dd>
+              <dd className="font-semibold text-crimson">5★ · 9 orders</dd>
             </div>
             <div>
               <dt className="text-muted">shipped</dt>

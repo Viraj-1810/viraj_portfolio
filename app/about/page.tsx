@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const highlights = [
   "Built a live automated stock-trading system for a repeat client: execution bot, real-time dashboard, and a backtesting engine.",
-  "A 4.9-star average across 9 delivered orders with a 100% on-time completion rate.",
+  "5-star reviews across 9 delivered orders with a 100% on-time completion rate.",
   "Shipped a paid, white-label voice assistant product as a one-click desktop app.",
   "Built RAG systems with FAISS and local HuggingFace embeddings, private and free to run.",
   "Deep-learning experience in medical imaging (ResNet50 plus autoencoder hybrids).",
@@ -48,7 +48,7 @@ export default function AboutPage() {
             Recently I built a live automated stock-trading system for a repeat
             US client (execution bot, real-time control dashboard, and a
             strategy-backtesting engine), alongside a white-label voice
-            assistant. I keep a 4.9-star average across 9 delivered orders.
+            assistant, with 5-star reviews across 9 delivered orders.
           </p>
         </div>
 
